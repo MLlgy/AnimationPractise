@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewAnimationActivity">
+
+
+    <View
+        android:id="@+id/viewRect"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/rotateAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="旋转动画"
+        app:layout_constraintLeft_toLeftOf="@id/viewRect"
+        app:layout_constraintTop_toBottomOf="@id/viewRect" />
+
+    <Button
+        android:id="@+id/alphAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="透明度动画"
+        app:layout_constraintLeft_toLeftOf="@id/rotateAnimation"
+        app:layout_constraintTop_toBottomOf="@id/rotateAnimation" />
+
+
+    <Button
+        android:id="@+id/scaleAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="缩放动画"
+        app:layout_constraintLeft_toLeftOf="@id/alphAnimation"
+        app:layout_constraintTop_toBottomOf="@id/alphAnimation" />
+
+    <Button
+        android:id="@+id/transalteAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="平移动画"
+        app:layout_constraintLeft_toLeftOf="@id/scaleAnimation"
+        app:layout_constraintTop_toBottomOf="@id/scaleAnimation" />
+
+
+    <Button
+        android:id="@+id/setAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="动画集合"
+        app:layout_constraintLeft_toLeftOf="@id/transalteAnimation"
+        app:layout_constraintTop_toBottomOf="@id/transalteAnimation" />
+
+</android.support.constraint.ConstraintLayout>
