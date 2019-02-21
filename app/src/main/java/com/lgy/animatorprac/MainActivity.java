@@ -35,7 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.view_animatino:
                 IntentUtils.INSTANCE.showIntent(this, ViewAnimationActivity.class);
+                break;
 
+            case R.id.object_animator:
+                IntentUtils.INSTANCE.showIntent(this,ObjectAnimatorActivity.class);
                 break;
             default:
                 break;

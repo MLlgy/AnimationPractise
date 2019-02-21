@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ObjectAnimatiorActivity">
+    tools:context=".ObjectAnimatorActivity">
 
 
     <ImageView
@@ -16,13 +16,70 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <View
+        android:id="@+id/view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivView" />
 
+    <Button
         android:id="@+id/btnTransalteAnimator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_10"
+        android:text="属性动画--平移"
         app:layout_constraintLeft_toLeftOf="@id/ivView"
         app:layout_constraintTop_toBottomOf="@id/ivView" />
 
+
+    <Button
+        android:id="@+id/btnScaleAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="属性动画--缩放"
+        app:layout_constraintLeft_toLeftOf="@id/btnTransalteAnimator"
+        app:layout_constraintTop_toBottomOf="@id/btnTransalteAnimator" />
+
+    <Button
+        android:id="@+id/btnProperValueHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="属性动画--ProperValueHolder"
+        app:layout_constraintLeft_toLeftOf="@id/btnScaleAnimator"
+        app:layout_constraintTop_toBottomOf="@id/btnScaleAnimator" />
+
+
+    <Button
+        android:id="@+id/btnAnimatorSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="属性动画--AnimatorSet"
+        app:layout_constraintLeft_toLeftOf="@id/btnProperValueHolder"
+        app:layout_constraintTop_toBottomOf="@id/btnProperValueHolder" />
+
+    <Button
+        android:id="@+id/btnValueAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="属性动画--ValueAnimator"
+        app:layout_constraintLeft_toLeftOf="@id/btnAnimatorSet"
+        app:layout_constraintTop_toBottomOf="@id/btnAnimatorSet" />
+
+    <TextView
+        android:id="@+id/tvValueAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/btnValueAnimator"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnValueAnimator"
+        tools:text="@string/app_name" />
 </android.support.constraint.ConstraintLayout>
