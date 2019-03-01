@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lgy.animatorprac.event.ViewGroupA xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:gravity="center"
+    tools:context=".event.EventTestActivity">
+
+
+    <com.lgy.animatorprac.event.ViewGroupB
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+
+        <com.lgy.animatorprac.event.ViewA
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/yellow" />
+    </com.lgy.animatorprac.event.ViewGroupB>
+
+</com.lgy.animatorprac.event.ViewGroupA>

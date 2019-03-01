@@ -4,11 +4,11 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
+import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.animation.BounceInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_object_animatior.*
@@ -24,6 +24,7 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
         btnProperValueHolder.setOnClickListener(this)
         btnAnimatorSet.setOnClickListener(this)
         btnValueAnimator.setOnClickListener(this)
+        svgAnimator.setOnClickListener(this)
         view.setOnClickListener(this)
     }
 
@@ -34,8 +35,48 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnProperValueHolder -> properValueAnimator()
             R.id.btnAnimatorSet -> animatorSet()
             R.id.btnValueAnimator -> valueAnimator()
+
+            R.id.svgAnimator -> {
+//                svgAnimatorFun()
+//                svgAnimatorFun1()
+                svgAnimatorFun2()
+            }
             R.id.view -> showToast()
         }
+    }
+
+    private fun svgAnimatorFun2() {
+
+        val drawable = ivSvg2.drawable
+        if (drawable is Animatable) {
+            val iv = ivSvg2.drawable as Animatable
+
+            iv.start()
+        }
+    }
+
+
+
+    private fun svgAnimatorFun1() {
+//        val drawable = ivSvg1.drawable
+//        if (drawable is Animatable) {
+//            val iv = ivSvg1.drawable as Animatable
+//            iv.start()
+//        }
+
+//        val animator = resources.getDrawable(R.drawable.ic_line) as AnimatedVectorDrawable
+//        ivSvg1.setImageDrawable(animator)
+//        animator.start()
+    }
+
+    private fun svgAnimatorFun() {
+        val drawable = ivSvg.drawable
+        if (drawable is Animatable) {
+            val iv = ivSvg.drawable as Animatable
+
+            iv.start()
+        }
+
     }
 
     private fun valueAnimator() {
@@ -55,7 +96,7 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
     private fun valueAnimatorOne() {
         val valueAnimator = ValueAnimator.ofFloat(0f, 50f)
         val x = ivView.left
-        Log.e("vaueright",ivView.right.toString()  + " "  + ivView.left)
+        Log.e("vaueright", ivView.right.toString() + " " + ivView.left)
         valueAnimator.addUpdateListener { valueAnimator1 ->
             val value: Float = valueAnimator1.animatedValue as Float
             val layoutParams = ivView.layoutParams
@@ -83,7 +124,7 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
         val list = listOf(translationX, scaleX, alpha)
         set.playTogether(list)
         set.duration = 5000
-        set.interpolator = BounceInterpolator()
+//        set.interpolator = BounceInterpolator()
         set.start()
     }
 
@@ -95,6 +136,7 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
         val tranlate = ObjectAnimator.ofFloat(view, "translationX", 300f)
         tranlate.duration = 3000
         tranlate.start()
+
     }
 
     private fun properValueAnimator() {
