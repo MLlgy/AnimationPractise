@@ -3,8 +3,6 @@ package com.lgy.animatorprac;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btnCodeLayoutAnimation).setOnClickListener(this);
         findViewById(R.id.view_animatino).setOnClickListener(this);
         findViewById(R.id.object_animator).setOnClickListener(this);
+        findViewById(R.id.layourAnimator).setOnClickListener(this);
 
     }
 
@@ -38,7 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.object_animator:
-                IntentUtils.INSTANCE.showIntent(this,ObjectAnimatorActivity.class);
+                IntentUtils.INSTANCE.showIntent(this, ObjectAnimatorActivity.class);
+                break;
+
+            case R.id.layourAnimator:
+                IntentUtils.INSTANCE.showIntent(this, LayoutAnimatorActivity.class);
                 break;
             default:
                 break;

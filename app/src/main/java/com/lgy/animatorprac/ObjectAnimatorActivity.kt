@@ -9,6 +9,7 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
 import android.view.animation.DecelerateInterpolator
+import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import com.lgy.animatorprac.valurAnimatorOfObject.CharEvalutor
 import kotlinx.android.synthetic.main.activity_object_animatior.*
@@ -26,13 +27,17 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
         btnValueAnimator.setOnClickListener(this)
         svgAnimator.setOnClickListener(this)
         view.setOnClickListener(this)
+        keyFrame.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnScaleAnimator -> scaleAnimator()
             R.id.btnTransalteAnimator -> translateAnimator()
-            R.id.btnProperValueHolder -> properValueAnimator()
+            R.id.btnProperValueHolder -> {
+//                properValueAnimator()
+                propertyValueHolder()
+            }
             R.id.btnAnimatorSet -> animatorSet()
             R.id.btnValueAnimator -> valueAnimator()
 
@@ -42,7 +47,22 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
                 svgAnimatorFun2()
             }
             R.id.view -> showToast()
+            R.id.keyFrame -> showFrame()
         }
+    }
+
+    private fun showFrame() {
+
+        val keyFrame1 = Keyframe.ofFloat(0f, 1f)
+        val keyFrame2 = Keyframe.ofFloat(0.5f, 0.7f)
+        keyFrame2.interpolator = LinearInterpolator()// keyFrame1 与 keyFrame2 之间设置了 线性插值器
+        val keyFrame3 = Keyframe.ofFloat(0.7f, 0.8f)
+        val keyframe4 = Keyframe.ofFloat(1f)
+        keyframe4.value = 1f
+        val propertyValueHolder = PropertyValuesHolder.ofKeyframe("alpha", keyFrame1, keyFrame2, keyFrame3, keyframe4)
+        val animator = ObjectAnimator.ofPropertyValuesHolder(mIVKeyFrame, propertyValueHolder)
+        animator.duration = 2000
+        animator.start()
     }
 
     private fun svgAnimatorFun2() {
@@ -186,6 +206,14 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
         val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(view, translation, scaleX, scaleY, alpha)
         objectAnimator.duration = 3000
         objectAnimator.start()
+    }
+
+    private fun propertyValueHolder() {
+        val change = PropertyValuesHolder.ofObject("CharText", CharEvalutor(), 'A', 'Z')
+        val animator = ObjectAnimator.ofPropertyValuesHolder(myTextView, change)
+        animator.duration = 2000
+        animator.interpolator = AccelerateInterpolator()
+        animator.start()
 
     }
 

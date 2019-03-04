@@ -20,9 +20,9 @@
         android:id="@+id/view"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/dp_100"
+        android:layout_marginLeft="@dimen/dp_50"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/ivView"
         app:layout_constraintTop_toTopOf="@id/ivView" />
 
     <Button
@@ -39,18 +39,24 @@
         android:id="@+id/btnScaleAnimator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="8dp"
         android:text="属性动画--缩放"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/btnTransalteAnimator"
-        app:layout_constraintTop_toBottomOf="@id/btnTransalteAnimator" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnTransalteAnimator" />
 
     <Button
         android:id="@+id/btnProperValueHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginTop="24dp"
         android:text="属性动画--ProperValueHolder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintLeft_toLeftOf="@id/btnScaleAnimator"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnScaleAnimator" />
 
 
@@ -67,40 +73,42 @@
         android:id="@+id/btnValueAnimator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="属性动画--ValueAnimator"
-        app:layout_constraintLeft_toLeftOf="@id/btnAnimatorSet"
-        app:layout_constraintTop_toBottomOf="@id/btnAnimatorSet" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="属性动画-ValueAnimator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAnimatorSet"
+        app:layout_constraintTop_toTopOf="@+id/btnAnimatorSet" />
 
     <TextView
         android:id="@+id/tvValueAnimator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/app_name"
         android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@id/btnValueAnimator"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnValueAnimator"
-        tools:text="@string/app_name" />
+        app:layout_constraintStart_toStartOf="@+id/svgAnimator"
+        app:layout_constraintTop_toBottomOf="@+id/svgAnimator" />
 
 
     <Button
         android:id="@+id/svgAnimator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginTop="40dp"
         android:text="属性动画--SVGAnimator"
-        app:layout_constraintLeft_toLeftOf="@id/btnValueAnimator"
-        app:layout_constraintTop_toBottomOf="@id/btnValueAnimator" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAnimatorSet"
+        tools:layout_editor_absoluteX="8dp" />
 
     <ImageView
         android:id="@+id/ivSvg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svgAnimator"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btnProperValueHolder"
+        app:layout_constraintTop_toTopOf="@+id/btnProperValueHolder"
         app:srcCompat="@drawable/animator_vector" />
 
     <ImageView
@@ -115,30 +123,35 @@
     <ImageView
         android:id="@+id/ivSvg2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_height="34dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/aniamte_vector_search"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivSvg1" />
+        app:layout_constraintStart_toEndOf="@+id/svgAnimator"
+        app:layout_constraintTop_toTopOf="@+id/svgAnimator" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="18dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
         android:background="@color/blue_light"
         android:padding="@dimen/dp_10"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/ivSvg2"
+        app:layout_constraintTop_toBottomOf="@+id/ivSvg2" />
 
 
     <com.lgy.animatorprac.valurAnimatorOfObject.PointView
         android:id="@+id/pointView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <com.lgy.animatorprac.customObjectAnimator.PointView
@@ -147,6 +160,37 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />
+
+
+    <com.lgy.animatorprac.MyTextView
+        android:id="@+id/myTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/blue_light"
+        android:padding="@dimen/dp_10"
+        android:text="1"
+        app:layout_constraintLeft_toLeftOf="@id/textView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+
+    <Button
+        android:id="@+id/keyFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:text="keyFrame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvValueAnimator" />
+
+    <ImageView
+        android:id="@+id/mIVKeyFrame"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toRightOf="@id/keyFrame"
+        app:layout_constraintTop_toTopOf="@id/keyFrame" />
 
 
 </android.support.constraint.ConstraintLayout>

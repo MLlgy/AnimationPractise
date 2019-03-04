@@ -11,7 +11,6 @@ class CharEvalutor : TypeEvaluator<Char> {
         val start = startValue?.toInt()
         val end = endValue?.toInt()
         val current = (start!! + fraction * (end!! - start)).toInt()
-        val result = current.toChar()
-        return result
+        return current.toChar()
     }
 }
