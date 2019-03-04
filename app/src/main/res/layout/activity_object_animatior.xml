@@ -20,7 +20,7 @@
         android:id="@+id/view"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/dp_10"
+        android:layout_margin="@dimen/dp_100"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/ivView" />
@@ -121,5 +121,32 @@
         android:background="@drawable/aniamte_vector_search"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivSvg1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_light"
+        android:padding="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+    <com.lgy.animatorprac.valurAnimatorOfObject.PointView
+        android:id="@+id/pointView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <com.lgy.animatorprac.customObjectAnimator.PointView
+        android:id="@+id/cusObjectAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

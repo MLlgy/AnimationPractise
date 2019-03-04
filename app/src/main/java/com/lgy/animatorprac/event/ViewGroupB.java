@@ -49,12 +49,44 @@ public class ViewGroupB extends LinearLayout {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Log.e(TAG, "dispatchTouchEvent: " + super.dispatchTouchEvent(ev));
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, "dispatchTouchEvent: MotionEvent.ACTION_DOWN");
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                Log.e(TAG, "dispatchTouchEvent: MotionEvent.ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, "dispatchTouchEvent: MotionEvent.ACTION_UP");
+
+                break;
+            default:
+                break;
+        }
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.e(TAG, "onInterceptTouchEvent: " + super.onInterceptTouchEvent(ev));
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, "onInterceptTouchEvent: MotionEvent.ACTION_DOWN");
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                Log.e(TAG, "onInterceptTouchEvent: MotionEvent.ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, "onInterceptTouchEvent: MotionEvent.ACTION_UP");
+
+                break;
+            default:
+                break;
+        }
         return super.onInterceptTouchEvent(ev);
     }
 
@@ -62,6 +94,22 @@ public class ViewGroupB extends LinearLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e(TAG, "onTouchEvent: " + super.onTouchEvent(event));
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, "onTouchEvent: MotionEvent.ACTION_DOWN");
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                Log.e(TAG, "onTouchEvent: MotionEvent.ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, "onTouchEvent: MotionEvent.ACTION_UP");
+
+                break;
+            default:
+                break;
+        }
         return super.onTouchEvent(event);
     }
 }

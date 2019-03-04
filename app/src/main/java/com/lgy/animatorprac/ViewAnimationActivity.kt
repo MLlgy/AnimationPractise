@@ -1,6 +1,7 @@
 package com.lgy.animatorprac
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -18,6 +19,7 @@ class ViewAnimationActivity : AppCompatActivity(), View.OnClickListener {
         scaleAnimation.setOnClickListener(this)
         transalteAnimation.setOnClickListener(this)
         setAnimation.setOnClickListener(this)
+        viewRect.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -28,6 +30,10 @@ class ViewAnimationActivity : AppCompatActivity(), View.OnClickListener {
             scaleAnimation.id -> showScaleAnimation()
             transalteAnimation.id -> showTransateAnimation()
             transalteAnimation.id -> showAnimationSet()
+            viewRect.id -> {
+                Snackbar.make(v, "点击", Snackbar.LENGTH_SHORT).show()
+            }
+
         }
     }
 
@@ -53,6 +59,7 @@ class ViewAnimationActivity : AppCompatActivity(), View.OnClickListener {
     private fun showTransateAnimation() {
         val translate = TranslateAnimation(0f, 200f, 0f, 300f)
         translate.duration = 2000
+        translate.fillAfter = true
         viewRect.startAnimation(translate)
     }
 

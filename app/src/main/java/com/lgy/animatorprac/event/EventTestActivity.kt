@@ -19,15 +19,24 @@ class EventTestActivity : Activity() {
 
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        Log.e(TAG, "dispatchTouchEvent" + super.dispatchTouchEvent(ev))
+        Log.e(TAG, "dispatchTouchEvent " + super.dispatchTouchEvent(ev))
+        when (ev?.action) {
+            MotionEvent.ACTION_DOWN -> Log.e(TAG, "ACTION_DOWN")
+            MotionEvent.ACTION_MOVE -> Log.e(TAG, "ACTION_MOVE")
+            MotionEvent.ACTION_UP -> Log.e(TAG, "ACTION_UP")
+        }
         return super.dispatchTouchEvent(ev)
     }
 
 //    fun onInterceptTouchEvent
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        Log.e(TAG, "onTouchEvent" + super.onTouchEvent(event));
-
+        Log.e(TAG, "onTouchEvent " + super.onTouchEvent(event));
+        when (event?.action) {
+            MotionEvent.ACTION_DOWN -> Log.e(TAG, "ACTION_DOWN")
+            MotionEvent.ACTION_MOVE -> Log.e(TAG, "ACTION_MOVE")
+            MotionEvent.ACTION_UP -> Log.e(TAG, "ACTION_UP")
+        }
         return super.onTouchEvent(event)
     }
 }

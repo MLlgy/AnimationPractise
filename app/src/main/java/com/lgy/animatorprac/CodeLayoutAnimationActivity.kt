@@ -28,7 +28,7 @@ class CodeLayoutAnimationActivity : AppCompatActivity() {
         initData()
         initView()
 //        initGestureDetector()
-        initJobScheduler()
+//        initJobScheduler()
     }
 
     private fun initJobScheduler() {

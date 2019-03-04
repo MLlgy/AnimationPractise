@@ -1,16 +1,16 @@
 package com.lgy.animatorprac
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
-import android.animation.ValueAnimator
+import android.animation.*
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.BounceInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import com.lgy.animatorprac.valurAnimatorOfObject.CharEvalutor
 import kotlinx.android.synthetic.main.activity_object_animatior.*
 
 class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
@@ -56,7 +56,6 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-
     private fun svgAnimatorFun1() {
 //        val drawable = ivSvg1.drawable
 //        if (drawable is Animatable) {
@@ -80,8 +79,34 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun valueAnimator() {
-        valueAnimatorOne()
+//        valueAnimatorOne()
 //        valueAnimatorTwo()
+//        valueAnimatorThree()
+//        valueAnimatorFour()
+        valueAnimatorFive()
+    }
+
+    private fun valueAnimatorFive() {
+        val animator = ObjectAnimator.ofInt(cusObjectAnimator, "PointRadius", 0, 300, 100)
+        animator.duration = 3000
+        animator.interpolator = BounceInterpolator()
+        animator.start()
+    }
+
+    private fun valueAnimatorFour() {
+        pointView.doAnimator()
+    }
+
+    private fun valueAnimatorThree() {
+        val animator = ValueAnimator.ofObject(CharEvalutor(), 'A', 'Z')
+        animator.addUpdateListener { animation ->
+            val text = animation.animatedValue as Char
+            textView.text = text.toString()
+        }
+        animator.duration = 10000
+        animator.setEvaluator(CharEvalutor())
+        animator.interpolator = AccelerateInterpolator()
+        animator.start()
     }
 
     private fun valueAnimatorTwo() {
@@ -94,24 +119,38 @@ class ObjectAnimatorActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun valueAnimatorOne() {
-        val valueAnimator = ValueAnimator.ofFloat(0f, 50f)
-        val x = ivView.left
-        Log.e("vaueright", ivView.right.toString() + " " + ivView.left)
+        val valueAnimator = ValueAnimator.ofInt(0, 150)
+        val left = view.left
+        val top = view.top
+        val x = view.x
+        val y = view.y
         valueAnimator.addUpdateListener { valueAnimator1 ->
-            val value: Float = valueAnimator1.animatedValue as Float
-            val layoutParams = ivView.layoutParams
-//            ivView.left = x + value.toInt()
-//            ivView.right = ivView.width + ivView.left
-            ivView.post {
-                ivView.left = x + value.toInt()
-                ivView.right = ivView.width + ivView.left
-                Log.e("vaue", ivView.right.toString() + " " + ivView.width.toString() + " " + ivView.left.toString())
-                ivView.invalidate()
-            }
-
+            val fraction = valueAnimator1.animatedFraction
+            Log.e("Fraction Listener", fraction.toString())
+            val currentValue = valueAnimator1.animatedValue as Int
+            Log.e("Evalutor Listener", currentValue.toString())
+            view.layout(left + currentValue, top + currentValue, left + currentValue + view.width, top + currentValue + view.height)
 
         }
         valueAnimator.duration = 5000
+
+        valueAnimator.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(animation: Animator?) {
+
+
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+        })
+        valueAnimator.interpolator = CustomeInterplotor()
+        valueAnimator.setEvaluator(CustomTypeEvalutor())
         valueAnimator.start()
 
     }
